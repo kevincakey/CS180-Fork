@@ -1,3 +1,10 @@
+# Sequence Diagram
+
+![image](https://user-images.githubusercontent.com/56360050/216213583-7b905676-94b5-4b88-9412-a1f5898e47a0.png)
+
+
+-------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
