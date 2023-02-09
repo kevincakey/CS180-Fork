@@ -16,7 +16,11 @@ export default class Page extends React.Component {
   render(){
     return(
       <div>
-
+        <h1> Fork Landing Page</h1>
+        <ul>
+          <li> How It Works </li>
+          <li> Login </li>
+        </ul>
       </div>
     );
   }
