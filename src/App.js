@@ -1,7 +1,8 @@
-/**import React, { Component }, { useState }from 'react';
-import tesseract from tesseract.js
+import React, { Component } from 'react';
+import tesseract from 'tesseract.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Form, Dropdown, Collapse, Col, Row} from 'react-bootstrap';
+import Vision from "./vision.js";
 
 
 //TODO: DEFINE DATABASE ELEMENTS GLOBALLY
@@ -16,17 +17,10 @@ export default class Page extends React.Component {
   render(){
     return(
       <div>
-
+        <Vision />
       </div>
     );
   }
 
 
-} */
-
-import Vision from "./vision.js";
-export default function App() {
-  return (
-    <Vision />
-  );
 }
