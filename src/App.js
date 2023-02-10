@@ -1,9 +1,9 @@
 import React, { Component }  from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button, Form, Dropdown, Collapse, Col, Row} from 'react-bootstrap';
+import {Button, Nav, Navbar, NavDropdown, Form, Dropdown, Collapse, Col, Row, Container} from 'react-bootstrap';
 
-
+import './App.css'
 //TODO: DEFINE DATABASE ELEMENTS GLOBALLY
 
 //homepage display class
@@ -21,9 +21,16 @@ export default class Page extends React.Component {
           <li> How It Works </li>
           <li> Login </li>
         </ul>
+        <Button> Login with Venmo </Button>
+
+          <Navbar bg="light" expand="lg">
+          <Nav.Link href="#action1">Home</Nav.Link>
+            
+
+          </Navbar>    
+
       </div>
     );
   }
-
 
 }
