@@ -17,11 +17,11 @@ export default class Page extends React.Component {
     return(
       <div style={{backgroundColor: "#e7f8ff"}}>
        <nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#e7f8ff"}}>
-          <a class="navbar-brand justify-content-end" href="#" style={{backgroundColor: "#e7f8ff"}}>Fork</a>
+          <a class="navbar-brand justify-content-end me-5" href="#" style={{backgroundColor: "#e7f8ff"}}>Fork</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse me-4" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item active">
                 <a class="nav-link" href="#">Home</a>
@@ -43,7 +43,11 @@ export default class Page extends React.Component {
           <li> How It Works </li>
           <li> Login </li>
         </ul>
-        <Button> Login with Venmo </Button>
+
+        <div ms-auto>
+          <Button> Login with Venmo </Button>
+        </div>
+        
 
           <Navbar bg="#e7f8ff" expand="lg">
           <Nav.Link href="#action1">Made with ❤️ by Team Blu </Nav.Link>
