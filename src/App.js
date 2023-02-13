@@ -25,7 +25,7 @@ export default class Page extends React.Component {
         <Button> Login with Venmo </Button>
 
           <Navbar bg="light" expand="lg">
-          <Nav.Link href="#action1">Made with ❤️ at UCR </Nav.Link>
+          <Nav.Link href="#action1">Made with ❤️ by Team Blu </Nav.Link>
           </Navbar>    
 
       </div>
