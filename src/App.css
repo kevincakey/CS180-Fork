@@ -33,6 +33,12 @@
   background-color: #e7f8ff;
 }
 
+.resize{
+  width: 300px;
+  height: auto;
+  margin-left: 20rem;
+}
+
 .main-div{
   height: 100vh;
   width: 100vw;

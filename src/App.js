@@ -45,23 +45,14 @@ export default class Page extends React.Component {
             <li> Login </li>
           </ul>
 
+          <img src="phone.jpg" class="resize img-fluid" alt="Responsive image"></img>
+
           <div ms-auto>
             <Button> Login with Venmo </Button>
           </div>
         </div>
 
-        {/* <div class="me-5">
-          <h1> Fork Landing Page</h1>
-          <ul>
-            <li> How It Works </li>
-            <li> Login </li>
-          </ul>
-
-          <div ms-auto>
-            <Button> Login with Venmo </Button>
-          </div>
-        </div> */}
-          
+        
 
           <footer class="text-center fixed-bottom" style={{backgroundColor: "#e7f8ff"}}>
             Made with ❤️ by Team Blu
