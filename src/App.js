@@ -16,8 +16,8 @@ export default class Page extends React.Component {
   render(){
     return(
       <div style={{backgroundColor: "#e7f8ff"}}>
-       <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-          <a class="navbar-brand justify-content-end" href="#">Fork</a>
+       <nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#e7f8ff"}}>
+          <a class="navbar-brand justify-content-end" href="#" style={{backgroundColor: "#e7f8ff"}}>Fork</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -45,7 +45,7 @@ export default class Page extends React.Component {
         </ul>
         <Button> Login with Venmo </Button>
 
-          <Navbar bg="light" expand="lg">
+          <Navbar bg="#e7f8ff" expand="lg">
           <Nav.Link href="#action1">Made with ❤️ by Team Blu </Nav.Link>
           </Navbar>    
 
