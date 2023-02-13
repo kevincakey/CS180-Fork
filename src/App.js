@@ -38,7 +38,7 @@ export default class Page extends React.Component {
           
         </nav>
 
-        <div class="me-5">
+        <div class="me-5 main-div">
           <h1> Fork Landing Page</h1>
           <ul>
             <li> How It Works </li>
@@ -49,6 +49,18 @@ export default class Page extends React.Component {
             <Button> Login with Venmo </Button>
           </div>
         </div>
+
+        {/* <div class="me-5">
+          <h1> Fork Landing Page</h1>
+          <ul>
+            <li> How It Works </li>
+            <li> Login </li>
+          </ul>
+
+          <div ms-auto>
+            <Button> Login with Venmo </Button>
+          </div>
+        </div> */}
           
 
           <footer class="text-center fixed-bottom" style={{backgroundColor: "#e7f8ff"}}>
