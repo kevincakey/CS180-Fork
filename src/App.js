@@ -17,7 +17,7 @@ export default class Page extends React.Component {
   render(){
     return(
       <div>
-        <Vision />
+        <Vision/>
       </div>
     );
   }
