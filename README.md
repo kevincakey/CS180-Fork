@@ -2,6 +2,8 @@
 
 ![image](https://user-images.githubusercontent.com/56360050/216213583-7b905676-94b5-4b88-9412-a1f5898e47a0.png)
 
+# Design
+![image](https://github.com/kevincakey/CS180-Fork/blob/design/public/fork_design.png)
 
 -------
 
