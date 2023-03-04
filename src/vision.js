@@ -2,22 +2,30 @@ import { useState } from 'react';
 import Tesseract from 'tesseract.js';
 
 function parseResultToBill(result){
-  //var text = result.data.text + "";
   var lines = result.data.lines, size = lines.length;
-  var bill = "", index = 0;
+  let items = new Array();
+  var index = 0, subTotal = "", tax = "", total = "";
+  //.indexOf on array of strings does not work
   while(index < size){
     let currentLine = lines[index].text;
     var charBeforeNL = currentLine.charAt((currentLine.indexOf('\n')) - 1);
-    if(currentLine.indexOf("otal") !== -1){
-      bill += currentLine;
-      return bill;
-    }
     if(!(isNaN(charBeforeNL))){
-      bill += currentLine;
+      if(currentLine.indexOf("Subtotal") !== -1){
+        subTotal = currentLine.substring(0, currentLine.indexOf("\n"));
+      }
+      else if(currentLine.indexOf("Tax") !== -1){
+        tax = currentLine.substring(0, currentLine.indexOf("\n"));
+      }
+      else if(currentLine.indexOf("Total") !== -1){
+        total = currentLine.substring(0, currentLine.indexOf("\n"));
+      }
+      else{
+        items.push(currentLine);
+      }
     }
     ++index;
   }
-  return bill;
+  return [items, subTotal, tax, total];
 }
 
 export default function Vision() {
@@ -33,9 +41,11 @@ export default function Vision() {
     .catch (err => {
       console.error(err) })
     .then(result => {
-      var bill = parseResultToBill(result);
-      console.log(result);
-      console.log(bill);
+      var [itemsByPrice, subtotal, tax, finalTotal] = parseResultToBill(result);
+      console.log(result, itemsByPrice);
+      console.log(subtotal);
+      console.log(tax);
+      console.log(finalTotal);
     })
   }
   return (
