@@ -22,7 +22,7 @@ export default class Page extends React.Component {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse me-4" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto me-5">
               <li class="nav-item active">
                 <a class="nav-link" href="#">Home</a>
               </li>
@@ -38,7 +38,7 @@ export default class Page extends React.Component {
           
         </nav>
 
-        <div class="me-5 main-div">
+        <div class="me-5 main-div body">
           <h1> Fork Landing Page</h1>
           <ul>
             <li> How It Works </li>
