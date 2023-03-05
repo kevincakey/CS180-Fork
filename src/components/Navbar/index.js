@@ -9,37 +9,17 @@ import { Nav, NavLink, NavMenu }
 			  Fork
 			</a>
 			<NavMenu>
+				<NavLink to="/home" activeStyle>
+ 					Home
+ 				</NavLink>
  				<NavLink to="/works" activeStyle>
  					Works
  				</NavLink>
  				<NavLink to="/login" activeStyle>
  					Login
  				</NavLink>
- 				<NavLink to="/blogs" activeStyle>
- 					Blogs
- 				</NavLink>
  			</NavMenu>
 		  </Nav>
 		);
 	  };
-// const Navbar = () => {
-// return (
-// 	<>
-// 	<Nav>
-// 		<NavMenu>
-// 		<NavLink to="/works" activeStyle>
-// 			Works
-// 		</NavLink>
-// 		<NavLink to="/login" activeStyle>
-// 			Login
-// 		</NavLink>
-// 		<NavLink to="/blogs" activeStyle>
-// 			Blogs
-// 		</NavLink>
-// 		</NavMenu>
-// 	</Nav>
-// 	</>
-// );
-// };
-
 export default Navbar;
