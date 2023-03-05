@@ -1,9 +1,8 @@
-// import { FaBars } from "react-icons/fa";
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-background: #ffb3ff;
+background: #e7f8ff;
 height: 85px;
 display: flex;
 justify-content: space-between;
@@ -42,11 +41,7 @@ export const NavMenu = styled.div`
 display: flex;
 align-items: center;
 margin-right: -24px;
-/* Second Nav */
-/* margin-right: 24px; */
-/* Third Nav */
-/* width: 100vw;
-white-space: nowrap; */
+
 @media screen and (max-width: 768px) {
 	display: none;
 }

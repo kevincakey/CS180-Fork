@@ -2,9 +2,11 @@ import React from "react";
 import { Nav, NavLink, NavMenu }
 	from "./NavbarElements";
 
+import './navbar.css'
+
 	const Navbar = () => {
 		return (
-		  <Nav className="navbar navbar-expand-lg navbar-light bg-light">
+		  <Nav className="navbar navbar-expand-lg">
 			<a className="navbar-brand" href="#">
 			  Fork
 			</a>
