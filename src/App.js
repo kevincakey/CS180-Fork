@@ -4,7 +4,6 @@ import {Button, Nav, NavDropdown, Form, Dropdown, Collapse, Col, Row, Container}
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Works from './works';
 import Login from './login';
-import Navbar from './components/Navbar';
 import Home from './home';
 
 import './App.css'

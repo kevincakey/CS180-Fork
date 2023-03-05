@@ -15,7 +15,7 @@ import './navbar.css'
  					Home
  				</NavLink>
  				<NavLink to="/works" activeStyle>
- 					Works
+ 					How It Works
  				</NavLink>
  				<NavLink to="/login" activeStyle>
  					Login
