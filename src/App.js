@@ -6,10 +6,11 @@ import {
 } from "@paypal/react-paypal-js";
 
 // This values are the props in the UI
-const amount = "56";
 const currency = "USD";
 const style = {"layout":"vertical"};
-
+var emails = ["sb-5bza4725037718@personal.example.com", "sb-43wny325020712@personal.example.com"];
+var amounts = ["2.5", "3.5"];
+var items = ["burger", "pizza"];
 // Custom component to wrap the PayPalButtons and handle currency changes
 const ButtonWrapper = ({ currency, showSpinner }) => {
     // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
@@ -25,51 +26,53 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
             },
         });
     }, [currency, showSpinner]);
-
-
+    
     return (<>
-            { (showSpinner && isPending) && <div className="spinner" /> }
-            <PayPalButtons
-                style={style}
-                disabled={false}
-                forceReRender={[amount, currency, style]}
-                fundingSource={undefined}
-                createOrder={(data, actions) => {
-                    let order =actions.order
-                        .create({
-                            purchase_units: [
-                                {
-                                    amount: {
-                                        currency_code: currency,
-                                        value: amount,
-                                    },
-                                    payee: {
-                                        email_address: "sb-uhvss25066906@personal.example.com"
-                                    }                                     
-                                }
-                            ]
-                        })
-
-                    // order.payee.email = "sb-uhvss25066906@personal.example.com";
-                    console.log(order);
-
-                    order.then((orderId) => {
-                        // Your code here after create the order
-                        return orderId;
-                    });
-                    
-                    return order;
-                }}
-                onApprove={function (data, actions) {
-                    return actions.order.capture().then(function () {
-                        // Your code here after capture the order
-                    });
-                }}
-            />
-        </>
+        { (showSpinner && isPending) && <div className="spinner" /> }
+        {emails.map((item, i) => {
+        return <PayPalButtons
+            style={style}
+            disabled={false}
+            forceReRender={[amounts, currency, style]}
+            fundingSource={undefined}
+            createOrder={(data, actions) => {
+                let order =actions.order
+                    .create({
+                        purchase_units: [
+                            {
+                                amount: {
+                                    currency_code: currency,
+                                    value: amounts[i],
+                                },
+                                payee: {
+                                    email_address: emails[i]
+                                }                                     
+                            }
+                        ]
+                    })
+                
+                // order.payee.email = "sb-uhvss25066906@personal.example.com";
+                console.log(order);
+                console.log(emails[i]);
+                order.then((orderId) => {
+                    // Your code here after create the order
+                    return orderId;
+                });
+                
+                return order;
+            }}
+            onApprove={function (data, actions) {
+                return actions.order.capture().then(function () {
+                    // Your code here after capture the order
+                });
+            }}
+        />
+    })}
+    </>
     );
 }
 
+    
 export default function App() {
 	return (
 		<div style={{ maxWidth: "750px", minHeight: "200px" }}>
