@@ -5,6 +5,14 @@
 # Design
 ![image](https://github.com/kevincakey/CS180-Fork/blob/design/public/fork_design.png)
 
+# Dependencies
+May have to install the following:
+
+`npm install --save styled-components`
+
+`npm install react-router-dom`
+
+
 -------
 
 # Getting Started with Create React App
