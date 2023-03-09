@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@paypal/react-paypal-js": "^7.8.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -13,6 +14,9 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "tesseract.js": "^4.0.2",
+    "react-paypal-js": "^0.0.1-security",
+    "react-resolve-dependencies": "^0.2.0",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

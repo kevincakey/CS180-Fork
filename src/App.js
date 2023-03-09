@@ -3,9 +3,7 @@ import tesseract from 'tesseract.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Form, Dropdown, Collapse, Col, Row} from 'react-bootstrap';
 import Vision from "./vision.js";
-
-
-//TODO: DEFINE DATABASE ELEMENTS GLOBALLY
+import PaymentHandler from './components/PaymentHandler.js'
 
 //homepage display class
 export default class Page extends React.Component {
@@ -18,11 +16,10 @@ export default class Page extends React.Component {
     return(
       <div>
         <VisionHandler/>
+        <PaymentHandler/>)
       </div>
     );
   }
-
-
 }
 
 
