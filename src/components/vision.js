@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Tesseract from 'tesseract.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button, Form, Dropdown, Collapse, Col, Row} from 'react-bootstrap';
 
 function binarize(image, threshold) {
   for(let i = 0; i < image.data.length; i += 4) {
