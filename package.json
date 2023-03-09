@@ -12,6 +12,7 @@
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
     "react-paypal-js": "^0.0.1-security",
+    "react-resolve-dependencies": "^0.2.0",
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
