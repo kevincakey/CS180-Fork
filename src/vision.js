@@ -63,24 +63,43 @@ function parseResultToBill(result){
   return [items, subTotal, tax, total];
 }
 
-export default function Vision() {
+export default function Vision(props) {
   const [imagePath, setImagePath] = useState("");
-  
+  const [result] = useState({});
+
   const handleChange = (event) => {
     setImagePath(URL.createObjectURL(event.target.files[0]));
   }
   const handleClick = () => {
     binarizePath(imagePath, 128, (binaryImageDataUrl) => {
-      Tesseract.recognize(binaryImageDataUrl,'eng', 
+      Tesseract.recognize(binaryImageDataUrl,'eng',
       { logger: m => console.log(m) })
     .catch (err => {
       console.error(err) })
     .then(result => {
       var [itemsByPrice, subtotal, tax, finalTotal] = parseResultToBill(result);
-      console.log(result, itemsByPrice);
-      console.log(subtotal);
-      console.log(tax);
-      console.log(finalTotal); 
+      // this.setState({
+      //   result: {
+      //     fin: result,
+      //     items: itemsByPrice,
+      //     subTotal: subtotal,
+      //     tax: tax,
+      //     total: finalTotal
+      //   }
+      // })
+
+      props.returnFunc({
+        fin: result,
+        items: itemsByPrice,
+        subTotal: subtotal,
+        tax: tax,
+        total: finalTotal
+      });
+
+      // console.log(result, itemsByPrice);
+      // console.log(subtotal);
+      // console.log(tax);
+      // console.log(finalTotal);
       })
     });
   }
@@ -88,7 +107,7 @@ export default function Vision() {
       <div className="App">
         <main className="App-mainD">
           <h3>Actual imagePath uploaded</h3>
-          <img 
+          <img
              src={imagePath} className="App-image" alt="logo"/>
           <input type="file" onChange={handleChange} />
           <button onClick={handleClick} style={{height:50}}> convert to text</button>
