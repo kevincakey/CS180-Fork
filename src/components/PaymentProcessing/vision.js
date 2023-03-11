@@ -75,20 +75,11 @@ export default function Vision(props) {
   const handleClick = () => {
     binarizePath(imagePath, 128, (binaryImageDataUrl) => {
       Tesseract.recognize(binaryImageDataUrl,'eng',
-      { logger: m => console.log(m) })
+      )// { logger: m => console.log(m) })
     .catch (err => {
       console.error(err) })
     .then(result => {
       var [itemsByPrice, subtotal, tax, finalTotal] = parseResultToBill(result);
-      // this.setState({
-      //   result: {
-      //     fin: result,
-      //     items: itemsByPrice,
-      //     subTotal: subtotal,
-      //     tax: tax,
-      //     total: finalTotal
-      //   }
-      // })
 
       props.returnFunc({
         fin: result,
