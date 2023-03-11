@@ -80,7 +80,7 @@ const InputInfo = (props) => {
   }
 
   return (
-    <div className="mx-5 justify-content-md-center">
+    <div>
       {returnNameList()}
       <Row className="my-2">     
         <Col xs={5}>

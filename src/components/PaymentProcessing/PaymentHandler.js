@@ -72,31 +72,25 @@ const ButtonWrapper = ({ currency, showSpinner }) => {
     );
 }
 
-export default class PaymentHandler extends React.Component {
-  constructor(props){
-    super(props);
-
-  }
+const PaymentHandler = () => {
 
 
-  render(){
-    return (
-  		<div style={{ maxWidth: "750px", minHeight: "200px" }}>
-              <PayPalScriptProvider
-                  options={{
-                      "client-id": "test",
-                      components: "buttons",
-                      currency: "USD"
-                  }}
-              >
-  				<ButtonWrapper
-                      currency={currency}
-                      showSpinner={false}
-                  />
-  			</PayPalScriptProvider>
-  		</div>
-  	);
-  }
-
-
+  return (
+    <div style={{ maxWidth: "750px", minHeight: "200px" }}>
+      <PayPalScriptProvider
+        options={{
+          "client-id": "test",
+          components: "buttons",
+          currency: "USD"
+        }}
+      >
+      <ButtonWrapper
+        currency={currency}
+        showSpinner={false}
+      />
+      </PayPalScriptProvider>
+    </div>
+  );      
 }
+
+export default PaymentHandler;
