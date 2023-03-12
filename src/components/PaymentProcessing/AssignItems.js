@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import {Button, Row, Col, Form, Card} from 'react-bootstrap';
 
 const AssignItems = (props) => {
-  let itemList = [{name: "item1", price: 1}, {name: "item2", price: 2}, {name: "item3", price: 3}, {name: "item4", price: 1}];
-  itemList = itemList.concat(itemList);
-  let nameList = [{name: "name1", email: "email1"}, {name: "name2", email: "email2"}, {name: "name3", email: "email3"}];
+  let itemList = props.visionData.items;// [{name: "item1", price: 1}, {name: "item2", price: 2}, {name: "item3", price: 3}, {name: "item4", price: 1}];
+  //itemList = itemList.concat(itemList);
+  let nameList = props.userInfo;//[{name: "name1", email: "email1"}, {name: "name2", email: "email2"}, {name: "name3", email: "email3"}];
 
   //add itemIndexList to each name
   nameList = nameList.map((name) => { return {...name, itemIndexList: []}});
@@ -37,9 +37,9 @@ const AssignItems = (props) => {
       });
     });
 
+    // console.log(newInfo.find((entry) => entry.name === name));
     //assign it to the new user
     newInfo.find((entry) => entry.name === name).itemIndexList.push(itemIndex);
-    // console.log("newinfo", newInfo);
     setInfoWithItems(newInfo);
   }
 
@@ -47,17 +47,17 @@ const AssignItems = (props) => {
     <>
     {rowList.map((row, i) => {
       return(
-        <Row className="justify-content-center my-2">
+        <Row className="justify-content-center my-2" key={i}>
           {row.map((item, j) => {
             return(
-              <Col className="align-items-center" style={{maxWidth: "20vw", minWidth: "10vw"}}>
+              <Col className="align-items-center" style={{maxWidth: "20vw", minWidth: "10vw"}} key={j}>
                 <Card className="border rounded-3">
                   <Card.Body className="border rounded-3 bg-white">
                     <Card.Title className="bg-white">{item.name}</Card.Title>
                     <Card.Text className="bg-white">
                       ${item.price}
                     </Card.Text>
-                    <Form.Select className="bg-white" onChange={(e) => assignItem(e.target.value, j * rowWidth + i)}>
+                    <Form.Select className="bg-white" onChange={(e) => assignItem(e.target.value, i * rowWidth + j)}>
                           {nameList.map((name, nameIndex) => {
                             return(
                               <option 
