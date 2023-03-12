@@ -62,13 +62,13 @@ const PaymentProcessor = () => {
       // payeeName={payeeName}
       // visionData={visionData} 
       userInfoWithItems={ [
-        {name: 'e', email: 'e1', itemIndexList: [0, 2]},
-        {name: 'f', email: 'f1', itemIndexList: [1]},
+        {name: 'name1', email: 'e1', itemIndexList: [0, 2]},
+        {name: 'name2', email: 'f1', itemIndexList: [1]},
       ] }
-      payeeName={"e"}
+      payeeName={"name1"}
       visionData={{ items: [
         {name: 'Front and rear brake cables', price: 100},
-        {name: 'New set of pedal arms', price: 3000},
+        {name: 'New set of pedal arms', price: 30},
         {name: 'Labor 3hrs', price: 15} ]
       }}
       finishFunc={paymentCompleted}/>}
