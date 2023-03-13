@@ -81,9 +81,6 @@ const PaymentHandler = (props) => {
       user.itemIndexList.forEach((index) => { total += props.visionData.items[index].price });
 
       //normalize to total with tax and tip included
-      console.log("total", total)
-      console.log("subtotal", props.visionData.subTotal)
-      console.log("total", props.visionData.total)
       total = Math.ceil((total/props.visionData.subTotal) * props.visionData.total * 100) / 100;
 
       return { name: user.name, email: user.email, total:total };
