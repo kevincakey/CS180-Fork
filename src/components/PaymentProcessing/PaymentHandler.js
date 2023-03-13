@@ -79,6 +79,13 @@ const PaymentHandler = (props) => {
     let UIWT = props.userInfoWithItems.map((user) => {
       let total = 0;
       user.itemIndexList.forEach((index) => { total += props.visionData.items[index].price });
+
+      //normalize to total with tax and tip included
+      console.log("total", total)
+      console.log("subtotal", props.visionData.subTotal)
+      console.log("total", props.visionData.total)
+      total = Math.ceil((total/props.visionData.subTotal) * props.visionData.total * 100) / 100;
+
       return { name: user.name, email: user.email, total:total };
     })
 
@@ -104,12 +111,8 @@ const PaymentHandler = (props) => {
     return (<></>);
   }
 
-  //TODO: compute totals normalized to total with tax and tip included
-
-  //remove payee from list
-  // let i = userInfoWithTotals.findIndex((user) => { return user.name === props.payeeName });
-  // userInfoWithTotals.splice(i, 1);
-
+  let nextText = (currentState < userInfoWithTotals.length - 1) ? "Pay Next Person" : "Finish";
+  console.log(nextText)
   return (
     <div style={{ maxWidth: "750px", minHeight: "200px" }}>
       <h4> Choose how to recieve ${currentInfo.total} from {currentInfo.name}</h4>
@@ -132,7 +135,7 @@ const PaymentHandler = (props) => {
       <Row className="my-2">
         <Col/>
         <Col align="center">
-          <Button onClick={() => setCurrentState(currentState + 1)} >Pay Next Person</Button>
+          <Button onClick={() => setCurrentState(currentState + 1)}>{nextText}</Button>
         </Col>
        </Row> 
     </div>

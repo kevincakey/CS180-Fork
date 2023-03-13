@@ -7,7 +7,7 @@ import InputInfo from './InputInfo'
 import AssignItems from './AssignItems'
 
 const PaymentProcessor = () => {
-  const [currentStage, setCurrentStage] = useState(3)
+  const [currentStage, setCurrentStage] = useState(0)
   const [visionData, setVisionData] = useState({
     visionData: {
       fin: {},
@@ -24,21 +24,27 @@ const PaymentProcessor = () => {
   const recievedUserInfoFromInput = (infoArg) => {
     setUserinfo(infoArg.info);
     setPayeeName(infoArg.payeeName);
-    console.log(infoArg.payeeName)
     setCurrentStage(currentStage + 1);
   }
 
   const recievedPaymentInfoFromAssignItems = (infoArg) => {
     setUserInfoWithItems(infoArg);
-    console.log(infoArg);
     setCurrentStage(currentStage + 1);
   }
 
   const recievedItemsFromVision = (data) => {
     data.items = parseVisionItems(data.items);
+    data.subTotal = fixParsedNum(data.subTotal);
+    data.tax = fixParsedNum(data.tax);
+    if (data.total === ""){
+      data.total = data.subTotal + data.tax;
+    } else {
+      data.total = fixParsedNum(data.total);
+    }
+  
     setVisionData(data);
     console.log(data);
-    setCurrentStage(currentStage + 1);
+    // setCurrentStage(currentStage + 1);
   };
 
   const paymentCompleted = () => {
@@ -49,7 +55,7 @@ const PaymentProcessor = () => {
     <div className="mx-5 justify-content-md-center">
     { currentStage === 0 && <>
       <Vision returnFunc={recievedItemsFromVision}/>
-      {/* <VisionCorrection visionData={visionData}/> */}
+      <VisionCorrection visionData={visionData} finishFunc={() => setCurrentStage(currentStage + 1)}/>
     </>}
     { currentStage === 1 && <InputInfo finishFunc={recievedUserInfoFromInput}/>}
     { currentStage === 2 && <AssignItems 
@@ -58,27 +64,38 @@ const PaymentProcessor = () => {
       finishFunc={recievedPaymentInfoFromAssignItems}
     />}
     { currentStage === 3 && <PaymentHandler 
-      // userInfoWithItems={userInfoWithItems}
-      // payeeName={payeeName}
-      // visionData={visionData} 
-      userInfoWithItems={ [
-        {name: 'name1', email: 'e1', itemIndexList: [0, 2]},
-        {name: 'name2', email: 'f1', itemIndexList: [1]},
-      ] }
-      payeeName={"name1"}
-      visionData={{ items: [
-        {name: 'Front and rear brake cables', price: 100},
-        {name: 'New set of pedal arms', price: 30},
-        {name: 'Labor 3hrs', price: 15} ]
-      }}
+      userInfoWithItems={userInfoWithItems}
+      payeeName={payeeName}
+      visionData={visionData} 
+      // userInfoWithItems={ [
+      //   {name: 'name1', email: 'e1', itemIndexList: [0, 2]},
+      //   {name: 'name2', email: 'f1', itemIndexList: [1]},
+      // ] }
+      // payeeName={"name1"}
+      // visionData={{ items: [
+      //   {name: 'Front and rear brake cables', price: 100},
+      //   {name: 'New set of pedal arms', price: 30},
+      //   {name: 'Labor 3hrs', price: 15} 
+      // ],
+      // total: 154.06,
+      // subTotal: 145,
+      // tax: 9.06
+      // }}
       finishFunc={paymentCompleted}/>}
-    { currentStage === 4 && <div>Payment Completed</div>}
+    { currentStage === 4 && <h4> Congrats! You're all paid back</h4>}
   </div>
   )
 }
 
 export default PaymentProcessor
 
+const fixParsedNum = (num) => {
+  let newNum = num.replace(' ', "");
+  newNum = newNum.replace(',', "");
+  newNum = newNum.replace('.', "");
+  newNum = newNum.replace('\n', "");
+  return Number(newNum);
+}
 
 const parseVisionItems = (items) => {
   // console.log(items);

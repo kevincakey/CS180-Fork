@@ -13,8 +13,25 @@ const InputInfo = (props) => {
     if (info.length === 0){
       return( <></> );
     }
-    return(
+    return(<>
+      <h4> Enter the names and emails of everyone who paid for the items</h4>
       <ListGroup variant="flush" className="border rounded-3">
+        <ListGroup.Item>
+          <Row>
+            <Col className="d-flex align-items-center bg-white" xs={5}>
+              Name
+            </Col>
+            <Col className="d-flex align-items-center bg-white" xs={5}>
+              Email
+            </Col>
+            <Col className="d-flex align-items-center bg-white">
+              Payee
+            </Col>
+            <Col className="d-flex align-items-center bg-white">
+              Delete
+            </Col>
+          </Row>
+        </ListGroup.Item>
         {info.map((entry, i) => {
           let name = entry.name;
           let email = entry.email;
@@ -59,11 +76,12 @@ const InputInfo = (props) => {
           );
         })}
       </ListGroup>
-    )
+    </>);
   }
 
   const addInfo = () => {
-    if (curName !== "" && curEmail !== ""){
+    var testEmail =    /^[ ]*([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})[ ]*$/i;
+    if (curName !== "" && curEmail !== "" && testEmail.test(curEmail)){
       setCurName("");
       setCurEmail("");
       if (payeeName === ""){
@@ -74,7 +92,7 @@ const InputInfo = (props) => {
   }
 
   const finishIfReady = () => {
-    if (info.length > 0){
+    if (info.length > 1){
       props.finishFunc({payeeName: payeeName, info:info});
     }
   }
@@ -89,7 +107,7 @@ const InputInfo = (props) => {
         </Col>
         <Col xs={6}>
           <Form.Label>Email</Form.Label>
-          <Form.Control value={curEmail} onChange={ (e) => { setCurEmail(e.target.value); } }/>
+          <Form.Control type="email" placeholder="name@example.com" value={curEmail} onChange={ (e) => { setCurEmail(e.target.value); } }/>
         </Col>
         <Col className="d-flex">
           <Button className="mt-auto" onClick={addInfo}>+</Button>
@@ -98,7 +116,7 @@ const InputInfo = (props) => {
       <Row className="my-2">
         <Col/>
         <Col align="center">
-          <Button onClick={finishIfReady}>Finish</Button>
+          <Button onClick={finishIfReady}>Next Step</Button>
           {/* FUCKING DOGSHIT GARBAGE 
           <Button onClick={ 
             info.length > 0 ? 

@@ -78,7 +78,7 @@ const AssignItems = (props) => {
     <Row className="my-2">
       <Col/>
       <Col align="center">
-        <Button onClick={() => props.finishFunc(infoWithItems)}>Finish</Button>
+        <Button onClick={() => props.finishFunc(infoWithItems)}>Next Step</Button>
       </Col>
     </Row>
   </>);

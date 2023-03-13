@@ -99,7 +99,7 @@ export default function Vision(props) {
     return (
       <div className="App">
         <main className="App-mainD">
-          <h3>Actual imagePath uploaded</h3>
+          <h3>Upload Your Receipt</h3>
           <img
              src={imagePath} className="App-image" alt="logo"/>
           <input type="file" onChange={handleChange} />
