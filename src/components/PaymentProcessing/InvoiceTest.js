@@ -1,10 +1,7 @@
 import React from 'react'
+import "paypal-invoices";
 
-export const InvoiceTest = () => {
-
-  import "paypal-invoices";
-
-  const { Invoices } = require('paypal-invoices')
+const { Invoices } = require('paypal-invoices')
   
   const invoice = {
     "detail": {
@@ -148,7 +145,7 @@ export const InvoiceTest = () => {
       }
     }
   }
-  
+
   const main = async () => {
     // Create a new API instance
     const api = new Invoices(CLIENT_ID, CLIENT_SECRET)
@@ -164,6 +161,13 @@ export const InvoiceTest = () => {
     }
   
   }
+
+export const InvoiceTest = () => {
+
+  
+
+  
+  
   
 
 
