@@ -148,9 +148,10 @@ const { Invoices } = require('paypal-invoices')
 
   const main = async () => {
     // Create a new API instance
-    const api = new Invoices(CLIENT_ID, CLIENT_SECRET)
+    //const api = new Invoices("AdSFgXZEfRseu26TVxkw63oWrwLOYLNuxNMVoTOJID5DVSrLqNE7N4oZXjkpEv45ljMAlQqnEJPMDbG3", "EHStiDIIg8XOe17FjI0HlRO9HHR-f634YV0yo6Gw4a5nRuWFdbfix3yqTM8elTAi2ZTmwjatK1z-WePm")
     // Or a sandbox api
     // const api = new Invoices(CLIENT_ID, CLIENT_SECRET, true)
+    const api = new Invoices("AdSFgXZEfRseu26TVxkw63oWrwLOYLNuxNMVoTOJID5DVSrLqNE7N4oZXjkpEv45ljMAlQqnEJPMDbG3", "EHStiDIIg8XOe17FjI0HlRO9HHR-f634YV0yo6Gw4a5nRuWFdbfix3yqTM8elTAi2ZTmwjatK1z-WePm", true)
   
     // Initialize the API
     try {
