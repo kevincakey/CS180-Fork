@@ -41,6 +41,7 @@
   width: 300px;
   height: auto;
   margin-left: 20rem;
+  margin-right: 20rem;
 }
 
 .main-div{
@@ -48,12 +49,10 @@
   width: 100vw;
 }
 
-.me-4{
-  margin-right: 2.5rem;
-}
 
 .me-5{
-  margin-left: 3.5rem
+  margin-left: 3.5rem;
+  margin-right: 3.5rem;
 }
 
 @keyframes App-logo-spin {
