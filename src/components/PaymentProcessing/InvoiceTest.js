@@ -8,13 +8,19 @@ const { v4: uuidv4 } = require('uuid');
 const invoiceNumber = uuidv4().substring(1,25);
 console.log(invoiceNumber);
 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
+
 const invoice = {
 detail: {
     invoice_number: invoiceNumber,
     reference: "deal-ref",
-    invoice_date: "2022-02-04",
+    invoice_date: "2023-03-12",
     currency_code: "USD",
-    term: "No refunds after 30 days.",
   },
   invoicer: {
     name: {
@@ -64,7 +70,7 @@ detail: {
         }
       }
     }
-  ]
+  }
 }
 
 const main = async () => {

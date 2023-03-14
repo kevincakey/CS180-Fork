@@ -185,20 +185,21 @@ const createAndSendInvoices = async (userInfoWithTotals, payeeName, payeeEmail) 
   const { v4: uuidv4 } = require('uuid');
   const invoiceNumber = uuidv4().substring(1,25);
 
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = yyyy + '-' + mm + '-' + dd;
+
   console.log(invoiceNumber);
 
   for (const user of userInfoWithTotals) {
     const invoice = {
     detail: {
         invoice_number: invoiceNumber,
-        reference: "deal-ref",
-        invoice_date: "2022-02-04",
-        currency_code: "USD",
-        term: "No refunds after 30 days.",
-        payment_term: {
-          term_type: "NET_10",
-          due_date: "2022-02-14"
-        }
+        invoice_date: today,
+        currency_code: "USD"
       },
       invoicer: {
         name: {
@@ -223,7 +224,12 @@ const createAndSendInvoices = async (userInfoWithTotals, payeeName, payeeEmail) 
           unit_amount: {
             currency_code: "USD",
             value: item.price
-          }
+          },
+          tax: {
+            name: "Sales Tax",
+            percent: user.taxPercentage
+          },
+          unit_of_measure: "QUANTITY"
         });
       }),
       configuration: {
@@ -232,18 +238,18 @@ const createAndSendInvoices = async (userInfoWithTotals, payeeName, payeeEmail) 
         },
         tax_inclusive: false,
         template_id: ""
-      },
-      amount: {
-        breakdown: {
-          custom: {
-            label: "Total",
-            amount: {
-              currency_code: "USD",
-              value: user.total
-            }
-          }
-        }
-      }
+      }//,
+      // amount: {
+      //   breakdown: {
+      //     custom: {
+      //       label: "Total",
+      //       amount: {
+      //         currency_code: "USD",
+      //         value: user.total
+      //       }
+      //     }
+      //   }
+      // }
     }
 
     // Create a new API instance
