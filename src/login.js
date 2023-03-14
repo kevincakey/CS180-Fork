@@ -20,8 +20,8 @@ export default class Login extends React.Component {
 					</p>
 				</div>
 			</h1>
-			{/* <PaymentProcessor/> */}
-      <InvoiceTest/>
+			<PaymentProcessor/>
+      {/* <InvoiceTest/> */}
 			</div>
 		);
 	}

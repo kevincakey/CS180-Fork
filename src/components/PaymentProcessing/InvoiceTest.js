@@ -18,8 +18,7 @@ detail: {
   },
   invoicer: {
     name: {
-      given_name: "John",
-      surname: "Doe"
+      given_name: "John"
     },
     email_address: "sb-zkial24933043@business.example.com",
   },
@@ -30,8 +29,8 @@ detail: {
           given_name: "Stephanie",
           surname: "Meyers"
         },
-        email_address: "sb-uhvss25066906@personal.example.com",
-      },
+        email_address: "sb-uhvss25066906@personal.example.com"
+      }
     }
   ],
   items: [
@@ -46,17 +45,23 @@ detail: {
         name: "Sales Tax",
         percent: "7.25"
       }
+    }
+  ],
+  configuration: {
+    partial_payment: {
+      allow_partial_payment: true
     },
-    {
-      name: "Yoga t-shirt",
-      quantity: "1",
-      unit_amount: {
-        currency_code: "USD",
-        value: "10.00"
-      },
-      tax: {
-        name: "Sales Tax",
-        percent: "7.25"
+    tax_inclusive: false,
+    template_id: ""
+  },
+  amount: {
+    breakdown: {
+      custom: {
+        label: "Packing Charges",
+        amount: {
+          currency_code: "USD",
+          value: "10.00"
+        }
       }
     }
   ]
