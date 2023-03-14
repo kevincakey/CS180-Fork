@@ -1,145 +1,177 @@
 import React from 'react'
 import "paypal-invoices";
 
+// //access token
+// const https = require('https');
+
+// const options = {
+//   hostname: 'api-m.sandbox.paypal.com',
+//   path: '/v1/payments/payment',
+//   method: 'GET',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     'Authorization': 'Bearer access_token$sandbox$892h3ddknwqhd8y7$ed02b513a0654408cd4f13b9627326e8'
+//   }
+// };
+
+// const req = https.request(options, res => {
+//   console.log(statusCode: ${res.statusCode});
+
+//   res.on('data', d => {
+//     process.stdout.write(d);
+//   });
+// });
+
+// req.on('error', error => {
+//   console.error(error);
+// });
+// //access token end
+
 const { Invoices } = require('paypal-invoices')
-  
+
+// `const { v4: uuidv4 } = require('uuid');
+
+// const invoiceNumber = uuidv4().substring(1,25);
+// console.log(invoiceNumber);
+
 const invoice = {
-  "detail": {
-    "invoice_number": "123",
-    "reference": "deal-ref",
-    "invoice_date": "2020-11-12",
-    "currency_code": "USD",
-    "note": "Thank you for your business.",
-    "term": "No refunds after 30 days.",
-    "memo": "This is a long contract",
-    "payment_term": {
-      "term_type": "NET_10",
-      "due_date": "2020-11-22"
+detail: {
+    //invoice_number: invoiceNumber,
+    invoice_number: "a81658f-ff1a-4b3e-838e-6",
+    reference: "deal-ref",
+    invoice_date: "2022-02-04",
+    currency_code: "USD",
+    note: "Thank you for your business.",
+    term: "No refunds after 30 days.",
+    memo: "This is a long contract",
+    payment_term: {
+      term_type: "NET_10",
+      due_date: "2022-02-14"
     }
   },
-  "invoicer": {
-    "name": {
-      "given_name": "David",
-      "surname": "Larusso"
+  invoicer: {
+    name: {
+      given_name: "David",
+      surname: "Larusso"
     },
-    "address": {
-      "address_line_1": "1234 First Street",
-      "address_line_2": "337673 Hillside Court",
-      "admin_area_2": "Anytown",
-      "admin_area_1": "CA",
-      "postal_code": "98765",
-      "country_code": "US"
+    address: {
+      address_line_1: "1234 First Street",
+      address_line_2: "337673 Hillside Court",
+      admin_area_2: "Anytown",
+      admin_area_1: "CA",
+      postal_code: "98765",
+      country_code: "US"
     },
-    "email_address": "<merchant@example.com>",
-    "phones": [
+    email_address: "sb-zkial24933043@business.example.com",
+    phones: [
       {
-        "country_code": "001",
-        "national_number": "4085551234",
-        "phone_type": "MOBILE"
+        country_code: "001",
+        national_number: "4085551234",
+        phone_type: "MOBILE"
       }
     ],
-    "website": "https://example.com",
-    "tax_id": "XX-XXXXXXX",
-    "logo_url": "https://example.com/logo.PNG",
-    "additional_notes": "example note"
+    website: "https://example.com",
+    tax_id: "XX-XXXXXXX",
+    logo_url: "https://example.com/logo.PNG",
+    additional_notes: "example note"
   },
-  "primary_recipients": [
+  primary_recipients: [
     {
-      "billing_info": {
-        "name": {
-          "given_name": "Stephanie",
-          "surname": "Meyers"
+      billing_info: {
+        name: {
+          given_name: "Stephanie",
+          surname: "Meyers"
         },
-        "address": {
-          "address_line_1": "1234 Main Street",
-          "admin_area_2": "Anytown",
-          "admin_area_1": "CA",
-          "postal_code": "98765",
-          "country_code": "US"
+        address: {
+          address_line_1: "1234 Main Street",
+          admin_area_2: "Anytown",
+          admin_area_1: "CA",
+          postal_code: "98765",
+          country_code: "US"
         },
-        "email_address": "<bill-me@example.com>",
-        "phones": [
+        email_address: "sb-uhvss25066906@personal.example.com",
+        phones: [
           {
-            "country_code": "001",
-            "national_number": "4884551234",
-            "phone_type": "HOME"
+            country_code: "001",
+            national_number: "4884551234",
+            phone_type: "HOME"
           }
         ],
-        "additional_info_value": "add-info"
+        additional_info_value: "add-info"
       },
-      "shipping_info": {
-        "name": {
-          "given_name": "Stephanie",
-          "surname": "Meyers"
+      shipping_info: {
+        name: {
+          given_name: "Stephanie",
+          surname: "Meyers"
         },
-        "address": {
-          "address_line_1": "1234 Main Street",
-          "admin_area_2": "Anytown",
-          "admin_area_1": "CA",
-          "postal_code": "98765",
-          "country_code": "US"
+        address: {
+          address_line_1: "1234 Main Street",
+          admin_area_2: "Anytown",
+          admin_area_1: "CA",
+          postal_code: "98765",
+          country_code: "US"
         }
       }
     }
   ],
-  "items": [
+  items: [
     {
-      "name": "Yoga Mat",
-      "description": "Elastic mat to practice yoga.",
-      "quantity": "1",
-      "unit_amount": {
-        "currency_code": "USD",
-        "value": "50.00"
+      name: "Yoga Mat",
+      description: "Elastic mat to practice yoga.",
+      quantity: "1",
+      unit_amount: {
+        currency_code: "USD",
+        value: "50.00"
       },
-      "tax": {
-        "name": "Sales Tax",
-        "percent": "7.25"
+      tax: {
+        name: "Sales Tax",
+        percent: "7.25"
       },
-      "discount": {
-        "percent": "5"
+      discount: {
+        percent: "5"
       },
-      "unit_of_measure": "QUANTITY"
+      unit_of_measure: "QUANTITY"
     },
     {
-      "name": "Yoga t-shirt",
-      "quantity": "1",
-      "unit_amount": {
-        "currency_code": "USD",
-        "value": "10.00"
+      name: "Yoga t-shirt",
+      quantity: "1",
+      unit_amount: {
+        currency_code: "USD",
+        value: "10.00"
       },
-      "tax": {
-        "name": "Sales Tax",
-        "percent": "7.25"
+      tax: {
+        name: "Sales Tax",
+        percent: "7.25"
       },
-      "discount": {
-        "amount": {
-          "currency_code": "USD",
-          "value": "5.00"
+      discount: {
+        amount: {
+          currency_code: "USD",
+          value: "5.00"
         }
       },
-      "unit_of_measure": "QUANTITY"
+      unit_of_measure: "QUANTITY"
     }
   ],
-  "configuration": {
-    "partial_payment": {
-      "allow_partial_payment": true,
-      "minimum_amount_due": {
-        "currency_code": "USD",
-        "value": "20.00"
+  configuration: {
+    partial_payment: {
+      allow_partial_payment: true,
+      minimum_amount_due: {
+        currency_code: "USD",
+        value: "20.00"
       }
     },
-    "allow_tip": true,
-    "tax_calculated_after_discount": true,
-    "tax_inclusive": false,
-    "template_id": ""
+    allow_tip: true,
+    tax_calculated_after_discount: true,
+    tax_inclusive: false,
+    template_id: ""
   },
-  "amount": {
-    "breakdown": {
-      "custom": {
-        "label": "Packing Charges",
-        "amount": {
-          "currency_code": "USD",
-          "value": "10.00"
+  amount: {
+    breakdown: {
+      custom: {
+        label: "Packing Charges",
+        amount: {
+          currency_code: "USD",
+          value: "10.00"
         }
       }
     }
