@@ -117,7 +117,7 @@ const InputInfo = (props) => {
         <Col/>
         <Col align="center">
           <Button onClick={finishIfReady}>Next Step</Button>
-          {/* FUCKING DOGSHIT GARBAGE 
+          {/* DONT DO THIS
           <Button onClick={ 
             info.length > 0 ? 
             props.finishFunc({payeeName: payeeName, info:info}) 

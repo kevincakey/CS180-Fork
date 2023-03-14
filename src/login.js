@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PaymentProcessor from './components/PaymentProcessing/PaymentProcessor.js'
-import InvoiceTest from './components/PaymentProcessing/InvoiceTest.js';
 
 
 export default class Login extends React.Component {
@@ -21,7 +20,6 @@ export default class Login extends React.Component {
 				</div>
 			</h1>
 			<PaymentProcessor/>
-      {/* <InvoiceTest/> */}
 			</div>
 		);
 	}
