@@ -1,26 +1,35 @@
-import React, { Component } from 'react';
-import tesseract from 'tesseract.js'
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button, Form, Dropdown, Collapse, Col, Row} from 'react-bootstrap';
-import Vision from "./vision.js";
+import {Button, Nav, NavDropdown, Form, Dropdown, Collapse, Col, Row, Container} from 'react-bootstrap';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Works from './works';
+import Login from './login';
+import Home from './home';
 
+import './App.css'
+import Layout from './components/Layout/layout';
 
-//TODO: DEFINE DATABASE ELEMENTS GLOBALLY
 
 //homepage display class
-export default class Page extends React.Component {
+export default class App extends React.Component {
   constructor(props){
     super(props);
   }
 
-
-  render(){
-    return(
-      <div>
-        <Vision />
+  render() {
+    return (
+      <div className="background-blue">
+        <Router>
+          <Layout>
+              <Routes>
+                <Route path='/' element={<Home/>} />
+                <Route path='/home' element={<Home/>} />
+                <Route path='/login' element={<Login/>} />
+                <Route path='/works' element={<Works/>} />
+            </Routes>
+          </Layout>
+        </Router>
       </div>
     );
   }
-
-
 }

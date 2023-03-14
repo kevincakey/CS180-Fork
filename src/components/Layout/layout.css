@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-content {
+    margin: 4.5rem 0rem 2rem 0rem;
+}
+
+.content-container {
+    margin: 2.5rem auto 2.5rem auto;
+    max-width: 1126px;
+    min-height: 50vh;
+    padding: 10px;
+}
+
+.background-blue{
+    background-color: #e7f8ff;
+}
