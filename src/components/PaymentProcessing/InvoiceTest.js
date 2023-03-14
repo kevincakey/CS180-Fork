@@ -1,49 +1,20 @@
 import React from 'react'
 import "paypal-invoices";
 
-// //access token
-// const https = require('https');
-
-// const options = {
-//   hostname: 'api-m.sandbox.paypal.com',
-//   path: '/v1/payments/payment',
-//   method: 'GET',
-//   headers: {
-//     'Content-Type': 'application/json',
-//     'Authorization': 'Bearer access_token$sandbox$892h3ddknwqhd8y7$ed02b513a0654408cd4f13b9627326e8'
-//   }
-// };
-
-// const req = https.request(options, res => {
-//   console.log(statusCode: ${res.statusCode});
-
-//   res.on('data', d => {
-//     process.stdout.write(d);
-//   });
-// });
-
-// req.on('error', error => {
-//   console.error(error);
-// });
-// //access token end
-
 const { Invoices } = require('paypal-invoices')
 
-// `const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
-// const invoiceNumber = uuidv4().substring(1,25);
-// console.log(invoiceNumber);
+const invoiceNumber = uuidv4().substring(1,25);
+console.log(invoiceNumber);
 
 const invoice = {
 detail: {
-    //invoice_number: invoiceNumber,
-    invoice_number: "a81658f-ff1a-4b3e-838e-6",
+    invoice_number: invoiceNumber,
     reference: "deal-ref",
     invoice_date: "2022-02-04",
     currency_code: "USD",
-    note: "Thank you for your business.",
     term: "No refunds after 30 days.",
-    memo: "This is a long contract",
     payment_term: {
       term_type: "NET_10",
       due_date: "2022-02-14"
@@ -51,8 +22,8 @@ detail: {
   },
   invoicer: {
     name: {
-      given_name: "David",
-      surname: "Larusso"
+      given_name: "John",
+      surname: "Doe"
     },
     address: {
       address_line_1: "1234 First Street",
@@ -63,13 +34,6 @@ detail: {
       country_code: "US"
     },
     email_address: "sb-zkial24933043@business.example.com",
-    phones: [
-      {
-        country_code: "001",
-        national_number: "4085551234",
-        phone_type: "MOBILE"
-      }
-    ],
     website: "https://example.com",
     tax_id: "XX-XXXXXXX",
     logo_url: "https://example.com/logo.PNG",
