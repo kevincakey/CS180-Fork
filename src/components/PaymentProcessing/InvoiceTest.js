@@ -155,8 +155,10 @@ const { Invoices } = require('paypal-invoices')
     // Initialize the API
     try {
       await api.initialize();
+      console.log("API initialized");
     } catch (e) {
       console.log("Could not initialize");
+      console.log(e);
       return;
     }
   
@@ -165,8 +167,8 @@ const { Invoices } = require('paypal-invoices')
 export const InvoiceTest = () => {
 
   
+  main();
 
-  
   
   
 
@@ -175,3 +177,5 @@ export const InvoiceTest = () => {
     <div>InvoiceTest</div>
   )
 }
+
+export default InvoiceTest;
