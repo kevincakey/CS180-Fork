@@ -14,7 +14,6 @@ const InputInfo = (props) => {
       return( <></> );
     }
     return(<>
-      <h4> Enter the names and emails of everyone who paid for the items</h4>
       <ListGroup variant="flush" className="border rounded-3">
         <ListGroup.Item>
           <Row>
@@ -99,6 +98,7 @@ const InputInfo = (props) => {
 
   return (
     <div>
+      <h4> Enter the names and emails of everyone who paid for the items</h4>
       {returnNameList()}
       <Row className="my-2">     
         <Col xs={5}>
