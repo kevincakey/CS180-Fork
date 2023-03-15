@@ -68,8 +68,8 @@ const PaymentProcessor = () => {
       payeeName={payeeName}
       visionData={visionData} 
       // userInfoWithItems={ [
-      //   {name: 'name1', email: 'e1', itemIndexList: [0, 2]},
-      //   {name: 'name2', email: 'f1', itemIndexList: [1]},
+      //   {name: 'name1', email: 'sb-uhvss25066906@personal.example.com', itemIndexList: [0, 2]},
+      //   {name: 'name2', email: 'sb-847aoz24933044@personal.example.com', itemIndexList: [1]},
       // ] }
       // payeeName={"name1"}
       // visionData={{ items: [
