@@ -98,8 +98,6 @@ const PaymentHandler = (props) => {
     })
 
     //remove payee from list
-    console.log("This is UIWT:")
-    console.log(UIWT)
     if(props.userInfoWithItems){
       let i = UIWT.findIndex((user) => { return user.name === props.payeeName });
       payeeEmail = UIWT[i].email;
