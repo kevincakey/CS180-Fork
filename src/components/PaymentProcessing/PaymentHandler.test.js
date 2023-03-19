@@ -16,9 +16,9 @@ test('use jsdom in this test file', () => {
 
 
 
-// test('renders PaymentHandler component without errors', () => {
-// render(<PaymentHandler />);
-// });
+test('renders PaymentHandler component without errors', () => {
+  render(<PaymentHandler />);
+});
 
 
 test('renders PaymentProcessor component without errors', () => {

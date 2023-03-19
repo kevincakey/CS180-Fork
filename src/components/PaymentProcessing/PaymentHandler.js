@@ -73,7 +73,7 @@ import {Button, Row, Col, ListGroup, Tabs, Tab} from 'react-bootstrap';
 const PaymentHandler = (props) => {
   var payeeEmail = "";
   const [userInfoWithTotals, setUserInfoWithTotals] = useState(() => {
-    let UIWT = props.userInfoWithItems.map((user) => {
+    let UIWT = props.userInfoWithItems?.map((user) => {
       let total = 0;
       let items = [];
       user.itemIndexList.forEach((index) => { 
@@ -87,7 +87,7 @@ const PaymentHandler = (props) => {
       //normalize to total with tax and tip included
       let totalWithTax = Math.ceil((total/props.visionData.subTotal) * props.visionData.total * 100) / 100;
       let taxPercentage = ((totalWithTax - total) / total) * 100;
-
+      console.log(user.name)
       return {
         name: user.name, 
         email: user.email, 
@@ -98,9 +98,13 @@ const PaymentHandler = (props) => {
     })
 
     //remove payee from list
-    let i = UIWT.findIndex((user) => { return user.name === props.payeeName });
-    payeeEmail = UIWT[i].email;
-    // UIWT.splice(i, 1);
+    console.log("This is UIWT:")
+    console.log(UIWT)
+    if(props.userInfoWithItems){
+      let i = UIWT.findIndex((user) => { return user.name === props.payeeName });
+      payeeEmail = UIWT[i].email;
+    }
+    //UIWT.splice(i, 1);
     return UIWT;
   });
 
@@ -115,7 +119,7 @@ const PaymentHandler = (props) => {
     id="uncontrolled-tab-example"
     className="rounded-top"
     >
-    {userInfoWithTotals.map((user, i) => {       
+    {userInfoWithTotals?.map((user, i) => {       
       return( 
         <Tab eventKey={user.name} title={user.name} key={i} className="rounded-bottom bg-white">
 
