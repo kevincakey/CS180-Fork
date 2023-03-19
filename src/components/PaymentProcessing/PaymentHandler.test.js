@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import PaymentHandler from './PaymentHandler';
 import PaymentProcessor from './PaymentProcessor';
+import InputInfo from './InputInfo';
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
@@ -25,6 +26,15 @@ test('renders PaymentProcessor component without errors', () => {
   render(<PaymentProcessor />);
 });
 
+test('renders InputInfo component without errors', () => {
+render(<InputInfo />);
+});
+
+// test('subtotal calculates correctly', () => {
+//   if(props.total > 0 && props.totalWithTax > 0){
+//     expect(this.add(props.total, props.totalWithTax-total)).toBe(totalWithTax);
+//   }
+// });
   
     
   
