@@ -15,7 +15,7 @@ export const VisionCorrection = (props) => {
   }, [props.visionData.items])
 
 
-  if (!props.visionData || !props.visionData.items || props.visionData.items.length == 0 || !items){
+  if (!props.visionData || !props.visionData.items || props.visionData.items.length === 0 || !items){
     return (<></>);
   }
 

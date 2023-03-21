@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import VisionHandler from './VisionHandler.js'
-import Vision from "./vision.js";
+import { Vision } from "./vision.js";
 import PaymentHandler from './PaymentHandler.js'
 import { VisionCorrection } from './VisionCorrection.js';
 import InputInfo from './InputInfo'
