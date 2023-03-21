@@ -67,20 +67,6 @@ const PaymentProcessor = () => {
       userInfoWithItems={userInfoWithItems}
       payeeName={payeeName}
       visionData={visionData} 
-      // userInfoWithItems={ [
-      //   {name: 'name1', email: 'sb-uhvss25066906@personal.example.com', itemIndexList: [0, 2]},
-      //   {name: 'name2', email: 'sb-847aoz24933044@personal.example.com', itemIndexList: [1]},
-      // ] }
-      // payeeName={"name1"}
-      // visionData={{ items: [
-      //   {name: 'Front and rear brake cables', price: 100},
-      //   {name: 'New set of pedal arms', price: 30},
-      //   {name: 'Labor 3hrs', price: 15} 
-      // ],
-      // total: 154.06,
-      // subTotal: 145,
-      // tax: 9.06
-      // }}
       finishFunc={paymentCompleted}/>}
     { currentStage === 4 && <h4> Congrats! You're all paid back</h4>}
   </div>

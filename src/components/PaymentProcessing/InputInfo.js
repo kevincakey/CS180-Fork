@@ -65,6 +65,7 @@ const InputInfo = (props) => {
                   type="switch"
                   onChange={() => setPayeeName(name)}
                   checked={payeeName === name}
+                  data-testid={"payeeSwitch" + i}
                   />
                 </Col>
                 <Col className="bg-white " xs={1}>
@@ -103,11 +104,11 @@ const InputInfo = (props) => {
       <Row className="my-2">     
         <Col xs={5}>
           <Form.Label>Name</Form.Label>
-          <Form.Control value={curName} onChange={ (e) => { setCurName(e.target.value); } }/>
+          <Form.Control placeholder="name" value={curName} onChange={ (e) => { setCurName(e.target.value); } }/>
         </Col>
         <Col xs={6}>
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="name@example.com" value={curEmail} onChange={ (e) => { setCurEmail(e.target.value); } }/>
+          <Form.Control placeholder="name@example.com" value={curEmail} onChange={ (e) => { setCurEmail(e.target.value); } }/>
         </Col>
         <Col className="d-flex">
           <Button className="mt-auto" onClick={addInfo}>+</Button>

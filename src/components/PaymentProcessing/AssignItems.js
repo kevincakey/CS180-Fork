@@ -57,7 +57,7 @@ const AssignItems = (props) => {
                     <Card.Text className="bg-white">
                       ${item.price}
                     </Card.Text>
-                    <Form.Select className="bg-white" onChange={(e) => assignItem(e.target.value, i * rowWidth + j)}>
+                    <Form.Select className="bg-white" onChange={(e) => assignItem(e.target.value, i * rowWidth + j)} data-testid={"selectionBox" + (i * rowWidth + j)}>
                           {nameList.map((name, nameIndex) => {
                             return(
                               <option 
