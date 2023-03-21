@@ -12,7 +12,6 @@ return (
       <p> Bill splitting, made easy. </p>
 
       <img src="phone.jpg" class="resize img-fluid" alt="Responsive image"></img>
-      <Button class="btn btn-success float-right"> Login with Venmo </Button>
 
     </div>
 
