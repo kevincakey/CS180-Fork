@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import Tesseract from 'tesseract.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button, Form, Dropdown, Collapse, Col, Row} from 'react-bootstrap';
 
-function binarize(image, threshold) {
+export function binarize(image, threshold) {
   for(let i = 0; i < image.data.length; i += 4) {
     const r = image.data[i];
     const g = image.data[i + 1];
@@ -15,7 +14,7 @@ function binarize(image, threshold) {
   return image;
 }
 
-function binarizePath(imagePath, threshold, callback) {
+export function binarizePath(imagePath, threshold, callback) {
   var img = new Image();
   img.onload = function() {
     var canvas = document.createElement("canvas");
@@ -38,7 +37,7 @@ function binarizePath(imagePath, threshold, callback) {
   img.src = imagePath;
 }
 
-function parseResultToBill(result){
+export function parseResultToBill(result){
   var lines = result.data.lines, size = lines.length;
   let items = new Array();
   var index = 0, subTotal = "", tax = "", total = "";
@@ -65,7 +64,7 @@ function parseResultToBill(result){
   return [items, subTotal, tax, total];
 }
 
-export default function Vision(props) {
+export function Vision(props) {
   const [imagePath, setImagePath] = useState("");
   const [result] = useState({});
 
