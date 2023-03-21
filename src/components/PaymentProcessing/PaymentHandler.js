@@ -22,6 +22,7 @@ const PaymentHandler = (props) => {
       return {
         name: user.name, 
         email: user.email, 
+        totalWithoutTax: Math.ceil(total*100)/100,
         total:totalWithTax, 
         items: items, 
         taxPercentage: taxPercentage
@@ -86,7 +87,7 @@ const PaymentHandler = (props) => {
               <b className="bg-white">Tax: </b>
             </Col>
             <Col className="d-flex align-items-center bg-white" >
-              ${Math.ceil(user.taxPercentage * user.total) / 100}
+              ${Math.ceil((user.total - user.totalWithoutTax) * 100) / 100}
             </Col>
           </Row>
         </ListGroup.Item>
