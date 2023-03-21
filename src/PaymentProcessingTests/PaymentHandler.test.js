@@ -1,7 +1,18 @@
-import {render, screen} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+const jsdom = require('jsdom');
+const { JSDOM } = jsdom;
 import '@testing-library/jest-dom';
 import PaymentHandler from '../components/PaymentProcessing/PaymentHandler';
+
+const dom = new JSDOM();
+const document = dom.window.document;
+
+
+test('use jsdom in this test file', () => {
+    const element = document.createElement('div');
+    expect(element).not.toBeNull();
+});
 
 const userInfoWithItems= [
   {name: 'name1', email: 'sb-uhvss25066906@personal.example.com', itemIndexList: [0, 2]},
