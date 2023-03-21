@@ -67,20 +67,6 @@ const PaymentProcessor = () => {
       userInfoWithItems={userInfoWithItems}
       payeeName={payeeName}
       visionData={visionData} 
-      // userInfoWithItems={ [
-      //   {name: 'name1', email: 'sb-uhvss25066906@personal.example.com', itemIndexList: [0, 2]},
-      //   {name: 'name2', email: 'sb-847aoz24933044@personal.example.com', itemIndexList: [1]},
-      // ] }
-      // payeeName={"name1"}
-      // visionData={{ items: [
-      //   {name: 'Front and rear brake cables', price: 100},
-      //   {name: 'New set of pedal arms', price: 30},
-      //   {name: 'Labor 3hrs', price: 15} 
-      // ],
-      // total: 154.06,
-      // subTotal: 145,
-      // tax: 9.06
-      // }}
       finishFunc={paymentCompleted}/>}
     { currentStage === 4 && <h4> Congrats! You're all paid back</h4>}
   </div>
@@ -129,72 +115,4 @@ const parseVisionItems = (items) => {
     return ({name: splitArr.join(" "), price: price});
   }));
 }
-
-
-// export default class PaymentProcessor extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//       currentStage: 1,
-//       visionData: {
-//         fin: {},
-//         items: [],
-//         subTotal: -1,
-//         tax: -1,
-//         total: -1
-//       },
-//       userInfo: [],
-//       payeeName: ""
-//     };
-//   }
-
-//   render(){
-//     return( <>{this.renderBasedOnState()}</> );
-//   }
-
-//   renderBasedOnState(){
-
-//     if (this.state.currentStage === 0){
-//       return ( <Vision returnFunc={this.recievedItemsFromVision}/> );
-//     }
-//     else if (this.state.currentStage === 1){
-//       return( <InputInfo finishFunc={this.recievedUserInfoFromInput}/> );
-//     }
-//     else if (this.state.currentStage === 2){
-//      return (<AssignItems 
-//       userInfo={this.state.userInfo}
-//       payeeName={ this.state.payeeName} 
-//       visionData={this.state.visionData}
-//       finishFunc={this.recievedPaymentInfoFromAssignItems}
-//       />);
-//    }
-//    else if  (this.state.currentStage === 3){
-//     return (<>hi</>);
-//    }
-
-
-//     return(<>AHHHHHHHHHHHHHHH</>);
-//   }
-
-//   advanceState = () =>{
-//     this.setState({ currentStage: this.state.currentStage+1 });
-//   }
-
-//   recievedItemsFromVision = (data) => {
-//     this.setState({ visionData: data});
-//     console.log(data);
-//     this.advanceState();
-//   };
-
-//   recievedUserInfoFromInput = (infoArg) => {
-//     this.setState({ userInfo: infoArg.info, payeeName: infoArg.payeeName});
-//     this.advanceState();
-//   }
-
-//   recievedPaymentInfoFromAssignItems = (infoArg) => {
-
-//     this.advanceState();
-//   }
-
-// }
 

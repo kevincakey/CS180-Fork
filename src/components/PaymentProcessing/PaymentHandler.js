@@ -2,74 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {Button, Row, Col, ListGroup, Tabs, Tab} from 'react-bootstrap';
 
 
-
-// const PaymentHandler = (props) => {
-
-//   const [currentState, setCurrentState] = useState(0);
-//   const [userInfoWithTotals, setUserInfoWithTotals] = useState(() => {
-//     let UIWT = props.userInfoWithItems.map((user) => {
-//       let total = 0;
-//       user.itemIndexList.forEach((index) => { total += props.visionData.items[index].price });
-
-//       //normalize to total with tax and tip included
-//       total = Math.ceil((total/props.visionData.subTotal) * props.visionData.total * 100) / 100;
-
-//       return { name: user.name, email: user.email, total:total };
-//     })
-
-//     //remove payee from list
-//     let i = UIWT.findIndex((user) => { return user.name === props.payeeName });
-//     UIWT.splice(i, 1);
-//     return UIWT;
-//   });
-
-//   const [currentInfo, setCurrentInfo] = useState(userInfoWithTotals[0]);
-
-//   useEffect( () => {
-//     setCurrentInfo(userInfoWithTotals[currentState]);
-//   }, [currentState])
-
-//   console.log(props.userInfoWithItems);
-//   console.log("new", userInfoWithTotals);
-//   console.log("current", currentInfo);
-//   console.log("current state", currentState);
-
-//   if (currentState >= props.userInfoWithItems.length - 1) {
-//     props.finishFunc();
-//     return (<></>);
-//   }
-
-//   let nextText = (currentState < userInfoWithTotals.length - 1) ? "Pay Next Person" : "Finish";
-//   console.log(nextText)
-//   return (
-//     <div style={{ maxWidth: "750px", minHeight: "200px" }}>
-//       <h4> Choose how to recieve ${currentInfo.total} from {currentInfo.name}</h4>
-//       <PayPalScriptProvider
-//         options={{
-//           "client-id": "test",
-//           components: "buttons",
-//           currency: "USD"
-//         }}
-//       >
-//      <ButtonWrapper
-//         currency={currency}
-//         showSpinner={false}
-//         amount={currentInfo.total}
-//         email={currentInfo.email}
-//         finishFunc={() => console.log("fin") } 
-//         // setCurrentState(currentState + 1)
-//       />
-//       </PayPalScriptProvider>
-//       <Row className="my-2">
-//         <Col/>
-//         <Col align="center">
-//           <Button onClick={() => setCurrentState(currentState + 1)}>{nextText}</Button>
-//         </Col>
-//        </Row> 
-//     </div>
-//   );      
-// }
-
 const PaymentHandler = (props) => {
   var payeeEmail = "";
   const [userInfoWithTotals, setUserInfoWithTotals] = useState(() => {
@@ -87,10 +19,10 @@ const PaymentHandler = (props) => {
       //normalize to total with tax and tip included
       let totalWithTax = Math.ceil((total/props.visionData.subTotal) * props.visionData.total * 100) / 100;
       let taxPercentage = ((totalWithTax - total) / total) * 100;
-
       return {
         name: user.name, 
         email: user.email, 
+        totalWithoutTax: Math.ceil(total*100)/100,
         total:totalWithTax, 
         items: items, 
         taxPercentage: taxPercentage
@@ -100,7 +32,7 @@ const PaymentHandler = (props) => {
     //remove payee from list
     let i = UIWT.findIndex((user) => { return user.name === props.payeeName });
     payeeEmail = UIWT[i].email;
-    // UIWT.splice(i, 1);
+
     return UIWT;
   });
 
@@ -155,7 +87,7 @@ const PaymentHandler = (props) => {
               <b className="bg-white">Tax: </b>
             </Col>
             <Col className="d-flex align-items-center bg-white" >
-              ${Math.ceil(user.taxPercentage * user.total) / 100}
+              ${Math.ceil((user.total - user.totalWithoutTax) * 100) / 100}
             </Col>
           </Row>
         </ListGroup.Item>

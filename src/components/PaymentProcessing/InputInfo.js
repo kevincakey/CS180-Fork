@@ -14,7 +14,6 @@ const InputInfo = (props) => {
       return( <></> );
     }
     return(<>
-      <h4> Enter the names and emails of everyone who paid for the items</h4>
       <ListGroup variant="flush" className="border rounded-3">
         <ListGroup.Item>
           <Row>
@@ -66,6 +65,7 @@ const InputInfo = (props) => {
                   type="switch"
                   onChange={() => setPayeeName(name)}
                   checked={payeeName === name}
+                  data-testid={"payeeSwitch" + i}
                   />
                 </Col>
                 <Col className="bg-white " xs={1}>
@@ -99,15 +99,16 @@ const InputInfo = (props) => {
 
   return (
     <div>
+      <h4> Enter the names and emails of everyone who paid for the items</h4>
       {returnNameList()}
       <Row className="my-2">     
         <Col xs={5}>
           <Form.Label>Name</Form.Label>
-          <Form.Control value={curName} onChange={ (e) => { setCurName(e.target.value); } }/>
+          <Form.Control placeholder="name" value={curName} onChange={ (e) => { setCurName(e.target.value); } }/>
         </Col>
         <Col xs={6}>
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="name@example.com" value={curEmail} onChange={ (e) => { setCurEmail(e.target.value); } }/>
+          <Form.Control placeholder="name@example.com" value={curEmail} onChange={ (e) => { setCurEmail(e.target.value); } }/>
         </Col>
         <Col className="d-flex">
           <Button className="mt-auto" onClick={addInfo}>+</Button>
